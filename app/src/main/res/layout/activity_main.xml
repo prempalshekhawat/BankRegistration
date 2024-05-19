@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.MainActivity">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.prempal.bankregistration.ui.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/appLogoIv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_demo"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+            app:layout_constraintTop_toTopOf="@id/guidelineTop"/>
+            
+        <TextView
+            android:id="@+id/headertv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+            app:layout_constraintEnd_toEndOf="@id/guidelineBeforeEnd"
+            app:layout_constraintTop_toBottomOf="@+id/appLogoIv"
+            android:gravity="start"
+            android:layout_marginTop="15dp"
+            tools:text="placeholder text only for layout purpose actual text will be fetched from server"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:text="@string/header_text"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/textFieldsCL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintTop_toBottomOf="@+id/headertv"
+            app:layout_constraintBottom_toTopOf="@+id/guideTv">
+
+            <TextView
+                android:id="@+id/pancardFieldTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="PAN NUMBER"
+                android:textStyle="bold"
+                android:textColor="@color/grey"
+                android:textSize="12sp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/panNumberTil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pancardFieldTv"
+                style="@style/Rounded"
+                app:hintEnabled="false"
+                android:layout_marginTop="5dp">
+
+                 <com.google.android.material.textfield.TextInputEditText
+                     android:id="@+id/panNumberEt"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:maxLength="10"
+                     android:hint="ABCDE1234F"
+                     android:inputType="textCapCharacters"
+                     />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/birthdateFieldTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/panNumberTil"
+                android:layout_marginTop="25dp"
+                android:text="BIRTHDATE"
+                android:textStyle="bold"
+                android:textColor="@color/grey"
+                android:textSize="12sp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dobDayTil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/birthdateFieldTv"
+                style="@style/Rounded"
+                app:hintEnabled="false"
+                android:layout_marginTop="5dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dobDayEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="2"
+                    android:inputType="number"
+                    android:hint="DD"
+                    android:gravity="center"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dobMonthTil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/birthdateFieldTv"
+                app:layout_constraintEnd_toStartOf="@+id/dobYearTil"
+                app:layout_constraintStart_toEndOf="@+id/dobDayTil"
+                android:layout_marginStart="50dp"
+                style="@style/Rounded"
+                app:hintEnabled="false"
+                android:layout_marginTop="5dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dobMonthEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="2"
+                    android:inputType="number"
+                    android:hint="MM"
+                    android:gravity="center"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dobYearTil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/birthdateFieldTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dobMonthTil"
+                android:layout_marginStart="50dp"
+                style="@style/Rounded"
+                app:hintEnabled="false"
+                android:layout_marginTop="5dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dobYearEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="4"
+                    android:inputType="number"
+                    android:hint="YYYY"
+                    android:gravity="center"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/noPanTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintBottom_toBottomOf="@id/guidelineBottom"
+            android:gravity="center"
+            android:text="I don't have a PAN"
+            android:textColor="@color/purple"
+            android:textSize="14sp"/>
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintBottom_toTopOf="@+id/noPanTv"
+            android:text="NEXT"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_bg"
+            android:enabled="@{viewModel.isNextButtonEnabled()}"/>
+
+        <TextView
+            android:id="@+id/guideTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintEnd_toEndOf="@id/guidelineBeforeEnd"
+            app:layout_constraintBottom_toTopOf="@id/nextButton"
+            android:layout_marginBottom="10dp"
+            android:gravity="start"
+            tools:text="placeholder text only for layout purpose actual text will be fetched from server"
+            android:textColor="@color/grey"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:text="@string/guide_text"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineBeforeEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.90" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.98"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
