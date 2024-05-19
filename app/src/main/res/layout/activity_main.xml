@@ -13,7 +13,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <ImageView
             android:id="@+id/appLogoIv"
@@ -77,6 +78,7 @@
                      android:maxLength="10"
                      android:hint="ABCDE1234F"
                      android:inputType="textCapCharacters"
+                     android:textColor="@color/black"
                      />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -112,6 +114,7 @@
                     android:inputType="number"
                     android:hint="DD"
                     android:gravity="center"
+                    android:textColor="@color/black"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -136,6 +139,7 @@
                     android:inputType="number"
                     android:hint="MM"
                     android:gravity="center"
+                    android:textColor="@color/black"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -160,6 +164,7 @@
                     android:inputType="number"
                     android:hint="YYYY"
                     android:gravity="center"
+                    android:textColor="@color/black"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
